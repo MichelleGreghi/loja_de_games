@@ -34,7 +34,7 @@ public class Produto {
 	@NotNull(message = "Coloque a quantidade disponível na loja!")
 	private Integer quantidade;
 
-	@NotNull(message = "Coloque a quantidade disponível na loja!")
+	@NotNull(message = "Por favor, insira o valor do produto!")
 	@Positive
 	private BigDecimal preco;
 	
@@ -47,6 +47,12 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	// Relacionamente com classe Usuário
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
+
 
 	public Long getId() {
 		return id;
@@ -95,7 +101,7 @@ public class Produto {
 	public void setConsole(String console) {
 		this.console = console;
 	}
-
+	
 	// Método Get e Set de Categoria
 	public Categoria getCategoria() {
 		return categoria;
@@ -105,4 +111,12 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
+	// Get e Set de Usuário
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 }
